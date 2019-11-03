@@ -1,0 +1,35 @@
+{
+  "method": "slim.request",
+  "result": {
+    "artists_loop": [
+      {
+        "artist": "Eric Clapton",
+        "id": 4690,
+        "textkey": "E"
+      },
+      {
+        "textkey": "E",
+        "artist": "Eric Clapton & JJ Cale",
+        "id": 5320
+      },
+      {
+        "textkey": "J",
+        "id": 5794,
+        "artist": "JJ Cale & Eric Clapton"
+      },
+      {
+        "textkey": "E",
+        "artist": "Eric Clapton and BB King",
+        "id": 5321
+      },
+      {
+        "artist": "Eric Clapton and Friends",
+        "id": 5322,
+        "textkey": "E"
+      }
+    ],
+    "count": 5
+  },
+  "params": ["-", ["artists", "0", "100", "search: clapt", "tags: 's'"]],
+  "id": 1
+}

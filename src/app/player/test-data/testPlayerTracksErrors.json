@@ -1,0 +1,208 @@
+{
+  "result": {
+    "digital_volume_control": 1,
+    "playlist_loop": [
+      {
+        "coverid": "-94829217897336",
+        "artist": "No Artist",
+        "bitrate": "0",
+        "id": "-94829217897336",
+        "playlist index": 0,
+        "year": "0",
+        "title": null
+      },
+      {
+        "playlist index": 1,
+        "id": "-94829218188784",
+        "year": "0",
+        "title": null,
+        "coverid": "-94829218188784",
+        "artist": "No Artist",
+        "bitrate": "0"
+      },
+      {
+        "artist": "No Artist",
+        "bitrate": "0",
+        "coverid": "-94829228590936",
+        "year": "0",
+        "title": null,
+        "id": "-94829228590936",
+        "playlist index": 2
+      },
+      {
+        "coverid": "-94829224063384",
+        "artist": "No Artist",
+        "bitrate": "0",
+        "id": "-94829224063384",
+        "playlist index": 3,
+        "year": "0",
+        "title": null
+      },
+      {
+        "playlist index": 4,
+        "id": "-94829227443744",
+        "year": "0",
+        "title": null,
+        "coverid": "-94829227443744",
+        "artist": "No Artist",
+        "bitrate": "0"
+      },
+      {
+        "coverid": "-94829216538784",
+        "bitrate": "0",
+        "artist": "No Artist",
+        "id": "-94829216538784",
+        "playlist index": 5,
+        "year": "0",
+        "title": null
+      },
+      {
+        "coverid": "-94829226008712",
+        "bitrate": "0",
+        "artist": "No Artist",
+        "id": "-94829226008712",
+        "playlist index": 6,
+        "title": null,
+        "year": "0"
+      },
+      {
+        "id": "-94829227537624",
+        "playlist index": 7,
+        "title": null,
+        "year": "0",
+        "coverid": "-94829227537624",
+        "artist": "No Artist",
+        "bitrate": "0"
+      },
+      {
+        "bitrate": "0",
+        "artist": "No Artist",
+        "coverid": "-94829072901032",
+        "year": "0",
+        "title": null,
+        "playlist index": 8,
+        "id": "-94829072901032"
+      },
+      {
+        "year": "0",
+        "title": null,
+        "playlist index": 9,
+        "id": "-94829225631048",
+        "artist": "No Artist",
+        "bitrate": "0",
+        "coverid": "-94829225631048"
+      },
+      {
+        "coverid": "-94829224884280",
+        "bitrate": "0",
+        "artist": "No Artist",
+        "id": "-94829224884280",
+        "playlist index": 10,
+        "year": "0",
+        "title": null
+      },
+      {
+        "coverid": "-94829226425744",
+        "artist": "No Artist",
+        "bitrate": "0",
+        "playlist index": 11,
+        "id": "-94829226425744",
+        "year": "0",
+        "title": null
+      },
+      {
+        "title": null,
+        "year": "0",
+        "playlist index": 12,
+        "id": "-94829218975096",
+        "artist": "No Artist",
+        "bitrate": "0",
+        "coverid": "-94829218975096"
+      },
+      {
+        "coverid": "-94829209066280",
+        "artist": "No Artist",
+        "bitrate": "0",
+        "playlist index": 13,
+        "id": "-94829209066280",
+        "year": "0",
+        "title": null
+      },
+      {
+        "coverid": "-94829216724856",
+        "bitrate": "0",
+        "artist": "No Artist",
+        "id": "-94829216724856",
+        "playlist index": 14,
+        "title": null,
+        "year": "0"
+      },
+      {
+        "bitrate": "0",
+        "artist": "No Artist",
+        "coverid": "-94829227442208",
+        "year": "0",
+        "title": null,
+        "playlist index": 15,
+        "id": "-94829227442208"
+      },
+      {
+        "album": "When We All Fall Asleep, Where Do We Go?",
+        "id": "-94829073049952",
+        "playlist index": 16,
+        "genre": "Alternative",
+        "bitrate": "755kbps VBR",
+        "tracknum": "02",
+        "title": "Bad Guy",
+        "year": "2019",
+        "artist": "Billie Eilish",
+        "disc": "1",
+        "genre_id": "Alternative",
+        "type": "flc",
+        "coverid": "-94829073049952"
+      },
+      {
+        "playlist index": 17,
+        "id": "-94829225632008",
+        "genre": "Alternative",
+        "album": "When We All Fall Asleep, Where Do We Go?",
+        "tracknum": "07",
+        "bitrate": "649kbps VBR",
+        "title": "When The Party's Over (Feat. Finneas O'Connell)",
+        "year": "2019",
+        "type": "flc",
+        "coverid": "-94829225632008",
+        "artist": "Billie Eilish",
+        "disc": "1",
+        "genre_id": "Alternative"
+      }
+    ],
+    "playlist_tracks": 18,
+    "player_connected": 1,
+    "mode": "stop",
+    "playlist_timestamp": 1568418246.0616,
+    "playlist_cur_index": 0,
+    "mixer volume": 50,
+    "remoteMeta": {
+      "id": "-94829217897336",
+      "title": null,
+      "artist": "No Artist",
+      "year": "0",
+      "bitrate": "0",
+      "coverid": "-94829217897336"
+    },
+    "seq_no": 0,
+    "player_ip": "172.30.74.180:31211",
+    "power": 0,
+    "playlist mode": "off",
+    "playlist repeat": 0,
+    "playlist shuffle": 0,
+    "signalstrength": 0,
+    "player_name": "Transporter"
+  },
+  "params": [
+    "00:04:20:10:1b:e6",
+    ["status", "0", "100", "tags: playlist_tracks,t,a,e,l,y,r,o,g"]
+  ],
+  "method": "slim.request"
+}

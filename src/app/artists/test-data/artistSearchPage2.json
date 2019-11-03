@@ -1,0 +1,337 @@
+{
+  "params": ["-", ["artists", "200", "100", "search: The"]],
+  "method": "slim.request",
+  "result": {
+    "count": 282,
+    "artists_loop": [
+      {
+        "id": 6945,
+        "artist": "Nick Curran & The Nitelifes"
+      },
+      {
+        "id": 5671,
+        "artist": "Wallace/Winter/The Cummings"
+      },
+      {
+        "id": 4379,
+        "artist": "Big Head Todd & the Monsters"
+      },
+      {
+        "id": 5266,
+        "artist": "Dr. Hook & The Medicine Show"
+      },
+      {
+        "id": 7429,
+        "artist": "Ryan Hartt & The Blue Hearts"
+      },
+      {
+        "artist": "Jimmy Page & The Black Crowes",
+        "id": 6084
+      },
+      {
+        "artist": "Lil' Ed & The Blues Imperials",
+        "id": 6485
+      },
+      {
+        "artist": "Mamie Smith & The Harlem Trio",
+        "id": 6675
+      },
+      {
+        "id": 7391,
+        "artist": "Roger Miret And The Disasters"
+      },
+      {
+        "id": 7749,
+        "artist": "The Sound Of Animals Fighting"
+      },
+      {
+        "artist": "Tom Petty & The Heartbreakers",
+        "id": 7878
+      },
+      {
+        "id": 7883,
+        "artist": "Tom Petty & the Heartbreakers"
+      },
+      {
+        "id": 8059,
+        "artist": "Watermelon Slim & The Workers"
+      },
+      {
+        "artist": "Big Head Todd And The Monsters",
+        "id": 4380
+      },
+      {
+        "id": 4391,
+        "artist": "Bill Wharton & The Ingredients"
+      },
+      {
+        "id": 7300,
+        "artist": "J. Jorgensen/Revelation Theory"
+      },
+      {
+        "id": 7605,
+        "artist": "Snowy White & the White Flames"
+      },
+      {
+        "artist": "The Crazy World of Arthur Brown",
+        "id": 4874
+      },
+      {
+        "artist": "John Mayall & The Bluesbreakers",
+        "id": 6144
+      },
+      {
+        "artist": "The Paul Butterfield Blues Band",
+        "id": 7204
+      },
+      {
+        "artist": "Tom Petty And The Heartbreakers",
+        "id": 7885
+      },
+      {
+        "artist": "Tom Petty and the Heartbreakers",
+        "id": 7886
+      },
+      {
+        "id": 5319,
+        "artist": "Elvis Costello & the Attractions"
+      },
+      {
+        "artist": "Elvis Costello & The Attractions",
+        "id": 5322
+      },
+      {
+        "id": 7392,
+        "artist": "Ronnie Earl And The Broadcasters"
+      },
+      {
+        "artist": "Wilmer Watts & The Lonely Eagles",
+        "id": 4975
+      },
+      {
+        "id": 8130,
+        "artist": "Big Brother & the Holding Company"
+      },
+      {
+        "id": 4777,
+        "artist": "Curtis Mayfield & The Impressions"
+      },
+      {
+        "artist": "Edie Brickell & The New Bohemians",
+        "id": 4907
+      },
+      {
+        "id": 8310,
+        "artist": "Quiet Melon (The Faces + Art Wood"
+      },
+      {
+        "id": 7354,
+        "artist": "Robert Randolph & The Family Band"
+      },
+      {
+        "artist": "DJ Jazzy Jeff And The Fresh Prince",
+        "id": 5092
+      },
+      {
+        "artist": "Elvis Costello and The Attractions",
+        "id": 5320
+      },
+      {
+        "id": 5664,
+        "artist": "Kale/The Cummings/Bachman/Peterson"
+      },
+      {
+        "id": 8309,
+        "artist": "Quiet Melon (The Faces + Art Wood)"
+      },
+      {
+        "artist": "The White Stripes/The White Stripes",
+        "id": 8024
+      },
+      {
+        "artist": "Robert Plant & The Strange Sensation",
+        "id": 7347
+      },
+      {
+        "artist": "Steve Earle And The Del McCoury Band",
+        "id": 7672
+      },
+      {
+        "artist": "Barbara Blue & The Phantom Blues Band",
+        "id": 4331
+      },
+      {
+        "artist": "John Cafferty & The Beaver Brown Band",
+        "id": 6110
+      },
+      {
+        "artist": "Ben Harper & The Blind Boys Of Alabama",
+        "id": 4369
+      },
+      {
+        "artist": "Junior Kimbrough & The Soul Blues Boys",
+        "id": 6288
+      },
+      {
+        "id": 7943,
+        "artist": "Adam Clayton/Bono/Larry Mullen/The Edge"
+      },
+      {
+        "id": 7934,
+        "artist": "Adam Clayton/Larry Mullen/Bono/The Edge"
+      },
+      {
+        "id": 7933,
+        "artist": "Adam Clayton/The Edge/Bono/Larry Mullen"
+      },
+      {
+        "id": 7922,
+        "artist": "Adam Clayton/The Edge/Larry Mullen/Bono"
+      },
+      {
+        "id": 7301,
+        "artist": "B. Howes/J. Jorgensen/Revelation Theory"
+      },
+      {
+        "artist": "Bono/Adam Clayton/The Edge/Larry Mullen",
+        "id": 7926
+      },
+      {
+        "id": 7930,
+        "artist": "Bono/Larry Mullen/Adam Clayton/The Edge"
+      },
+      {
+        "id": 5237,
+        "artist": "Don Dokken/Markus Spiro/The Billy White"
+      },
+      {
+        "artist": "The Edge/Adam Clayton/Bono/Larry Mullen",
+        "id": 7932
+      },
+      {
+        "artist": "The Edge/Adam Clayton/Larry Mullen/Bono",
+        "id": 7924
+      },
+      {
+        "id": 7931,
+        "artist": "The Edge/Bono/Adam Clayton/Larry Mullen"
+      },
+      {
+        "artist": "The Edge/Larry Mullen/Bono/Adam Clayton",
+        "id": 7923
+      },
+      {
+        "id": 7925,
+        "artist": "Larry Mullen/Adam Clayton/Bono/The Edge"
+      },
+      {
+        "id": 7209,
+        "artist": "The Peter Malick Group Feat. Jess Klein"
+      },
+      {
+        "id": 7212,
+        "artist": "The Peter Malick Group Feat. Norah Jones"
+      },
+      {
+        "artist": "The Peter Malick Group Feat. Mercy Malick",
+        "id": 7213
+      },
+      {
+        "artist": "Adam Clayton/Bono/Larry Mullen/The Edge/U2",
+        "id": 7920
+      },
+      {
+        "artist": "The Peter Malick Group Feat. Antje Duvekot",
+        "id": 7211
+      },
+      {
+        "artist": "The Very Best Of The A&M Years (1977-1988)",
+        "id": 4119
+      },
+      {
+        "artist": "J. Jorgensen/M. McClockey/Revelation Theory",
+        "id": 7299
+      },
+      {
+        "artist": "The Peter Malick Group Feat. Kirsten Proffit",
+        "id": 7210
+      },
+      {
+        "artist": "COOOK/The Jones/Paul Cook/Vicious/Steve Jones",
+        "id": 7542
+      },
+      {
+        "id": 5670,
+        "artist": "Wallace/Winter/The Cummings/Peterson/Mc Dougall"
+      },
+      {
+        "artist": "The Adams/Thompson/The Jones/Baggot/Plant/Deamer",
+        "id": 7344
+      },
+      {
+        "artist": "Baggot/Plant/The Jones/Deamer/The Adams/Thompson",
+        "id": 7341
+      },
+      {
+        "id": 7343,
+        "artist": "Plant/The Adams/The Jones/Deamer/Thompson/Baggot"
+      },
+      {
+        "id": 6638,
+        "artist": "Chris Jasper/Dave Hall/Madonna/The Isley Brothers"
+      },
+      {
+        "id": 7575,
+        "artist": "Dave Sharp/MacDonald/Nigel Twist/Peters/The Alarm"
+      },
+      {
+        "artist": "Neville Marriner: Academy Of St. Martin In The Fields",
+        "id": 6942
+      },
+      {
+        "artist": "Adam Clayton/Bono/Larry Mullen/Larry Mullen Jr./The Edge",
+        "id": 7921
+      },
+      {
+        "id": 7302,
+        "artist": "J. Jorgensen/M. McCloskey/Revelation Theory/W. Hutchinson"
+      },
+      {
+        "artist": "Roy Harvey & Jess Johnston and The West Virginia Ramblers",
+        "id": 4990
+      },
+      {
+        "artist": "The Adams/The Jones/Plant/Thompson/Baggot/Bukka White/Deamer",
+        "id": 7339
+      },
+      {
+        "id": 6359,
+        "artist": "Kenny Wayne Shepherd Feat. Henry Gray & The Howlin' Wolf Band"
+      },
+      {
+        "artist": "Long John Baldry and the Hoochie Coochie Men Feat Rod Stewart",
+        "id": 8139
+      },
+      {
+        "id": 6360,
+        "artist": "Kenny Wayne Shepherd Feat. Hubert Sumlin & The Howlin' Wolf Band"
+      },
+      {
+        "artist": "Kenny Wayne Shepherd Feat. Pinetop Perkins & The Howlin' Wolf Band",
+        "id": 6362
+      },
+      {
+        "id": 6361,
+        "artist": "Kenny Wayne Shepherd Feat. George \"Wild Child\" Butler & The Howlin' Wolf Band"
+      },
+      {
+        "artist": "Adam Clayton/Bono/Dave \"The Edge\" Evans/Larry Mullen/Larry Mullen Jr./The Edge",
+        "id": 7942
+      },
+      {
+        "id": 7936,
+        "artist": "Adam Clayton/Adam Clayton, Bono, Larry Mullen Jr., The Edge/Bono/Larry Mullen/The Edge"
+      }
+    ]
+  }
+}

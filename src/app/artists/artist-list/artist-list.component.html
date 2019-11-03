@@ -1,0 +1,10 @@
+<cdk-virtual-scroll-viewport
+  itemSize="50"
+  (scrolledIndexChange)="scrollHandler($event)"
+  class="artist-viewport"
+>
+  <app-artist
+    *cdkVirtualFor="let artist of artists"
+    [artist]="artist"
+  ></app-artist>
+</cdk-virtual-scroll-viewport>

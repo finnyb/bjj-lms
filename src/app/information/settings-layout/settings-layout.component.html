@@ -1,0 +1,12 @@
+<app-bread-crumbs [crumbs]="crumbs"></app-bread-crumbs>
+<nav mat-tab-nav-bar class="settings">
+  <a
+    mat-tab-link
+    *ngFor="let routerLink of routerLinks"
+    [routerLink]="routerLink.link"
+    (click)="setActiveLink(routerLink.link)"
+    [active]="activeLink == routerLink.link"
+    >{{ routerLink.label }}
+  </a>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,13 @@
+<mat-toolbar class="breadcrumbs">
+  <a routerLink="/" class="sidenav-title">BJJ</a>
+  <span
+    class="breadcrumb-span"
+    *ngFor="let crumb of breadcrumbs; let i = index"
+  >
+    <span>&nbsp;/&nbsp;</span>
+    <a routerLink="{{ crumb.url }}" *ngIf="i !== breadcrumbs.length - 1">{{
+      crumb.label
+    }}</a>
+    <span *ngIf="i === crumbs.length - 1">{{ crumb.label }}</span>
+  </span>
+</mat-toolbar>

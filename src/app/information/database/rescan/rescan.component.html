@@ -1,0 +1,19 @@
+<mat-card class="rescan">
+  <mat-card-subtitle>Media Scan Details</mat-card-subtitle>
+  <mat-card-content *ngIf="scanned">
+    <mat-list>
+      <app-rescan-step
+        *ngFor="let step of steps"
+        [step]="step"
+        [info]="progress.info"
+      >
+      </app-rescan-step>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-content *ngIf="!scanned">
+    No scan performed yet
+  </mat-card-content>
+  <mat-card-footer *ngIf="scanned"
+    >Total time: {{ progress.totalTime }}</mat-card-footer
+  >
+</mat-card>

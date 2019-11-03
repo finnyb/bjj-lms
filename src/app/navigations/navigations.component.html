@@ -1,0 +1,7 @@
+<mat-button-toggle-group [vertical]="true">
+  <app-navigation
+    *ngFor="let navigation of navigations"
+    [navigation]="navigation"
+    routerLink="{{ navigation.url }}"
+  ></app-navigation>
+</mat-button-toggle-group>

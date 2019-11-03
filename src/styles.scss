@@ -1,0 +1,36 @@
+@import 'styles-variables';
+@import 'styles-reset';
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@import 'themes/default-theme.scss';
+@import 'themes/light-theme.scss';
+@import 'themes/black-theme.scss';
+@import 'themes/nature-theme.scss';
+
+@import 'app/app.component.scss-theme';
+
+@mixin custom-components-theme($theme) {
+  @include anms-app-component-theme($theme);
+}
+
+.default-theme {
+  @include angular-material-theme($anms-theme);
+  @include custom-components-theme($anms-theme);
+}
+
+.light-theme {
+  @include angular-material-theme($anms-light-theme);
+  @include custom-components-theme($anms-light-theme);
+}
+
+.black-theme {
+  @include angular-material-theme($anms-black-theme);
+  @include custom-components-theme($anms-black-theme);
+}
+
+.nature-theme {
+  @include angular-material-theme($anms-nature-theme);
+  @include custom-components-theme($anms-nature-theme);
+}

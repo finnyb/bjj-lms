@@ -1,0 +1,186 @@
+{
+  "id": "",
+  "params": ["-", ["albums", "0", "100", "artist_id:4690", "tags: a,l,y,j,S"]],
+  "method": "slim.request",
+  "result": {
+    "albums_loop": [
+      {
+        "album": "461 Ocean Boulevard",
+        "artist_id": "4690",
+        "year": 1974,
+        "id": 6153,
+        "artwork_track_id": "1ac1eb55",
+        "artist": "Eric Clapton"
+      },
+      {
+        "artwork_track_id": "c0653b87",
+        "artist": "Eric Clapton",
+        "year": 1986,
+        "id": 6154,
+        "album": "August",
+        "artist_id": "4690"
+      },
+      {
+        "artist": "Eric Clapton",
+        "artwork_track_id": "4453bde9",
+        "id": 6155,
+        "year": 2005,
+        "artist_id": "4690",
+        "album": "Back Home"
+      },
+      {
+        "year": 1985,
+        "id": 6156,
+        "artwork_track_id": "eb3ac431",
+        "artist": "Eric Clapton",
+        "album": "Behind The Sun",
+        "artist_id": "4690"
+      },
+      {
+        "artist": "Eric Clapton",
+        "artwork_track_id": "b9f9d6e6",
+        "id": 6157,
+        "year": 2007,
+        "artist_id": "4690",
+        "album": "Clapton Chronicles"
+      },
+      {
+        "artist": "Eric Clapton",
+        "artwork_track_id": "ff38d410",
+        "id": 6169,
+        "year": 1981,
+        "artist_id": "4690",
+        "album": "The Cream Of Clapton"
+      },
+      {
+        "album": "Crossroads",
+        "artist_id": "4690",
+        "artwork_track_id": "1c26ed99",
+        "artist": "Eric Clapton",
+        "year": 0,
+        "id": 6158
+      },
+      {
+        "id": 6159,
+        "year": 1975,
+        "artist": "Eric Clapton",
+        "artwork_track_id": "cbd75780",
+        "artist_id": "4690",
+        "album": "E.C. Was Here"
+      },
+      {
+        "artist_id": "4690",
+        "album": "From The Cradle",
+        "id": 6160,
+        "year": 1994,
+        "artist": "Eric Clapton",
+        "artwork_track_id": "31275efc"
+      },
+      {
+        "id": 6161,
+        "year": 1989,
+        "artist": "Eric Clapton",
+        "artwork_track_id": "1fa239d7",
+        "artist_id": "4690",
+        "album": "Journeyman"
+      },
+      {
+        "album": "Just One Night",
+        "artist_id": "4690",
+        "artwork_track_id": "c393d731",
+        "artist": "Eric Clapton",
+        "year": 1996,
+        "id": 6162
+      },
+      {
+        "id": 6163,
+        "year": 2004,
+        "artist": "Eric Clapton",
+        "artwork_track_id": "e7c3422d",
+        "artist_id": "4690",
+        "album": "Me and Mr. Johnson"
+      },
+      {
+        "year": 1998,
+        "id": 6164,
+        "artwork_track_id": "1bb9ca38",
+        "artist": "Eric Clapton",
+        "album": "Pilgrim",
+        "artist_id": "4690"
+      },
+      {
+        "artist_id": "4690",
+        "album": "Reptile",
+        "artist": "Eric Clapton",
+        "artwork_track_id": "ba60823b",
+        "id": 6165,
+        "year": 2000
+      },
+      {
+        "album": "Riding With The King",
+        "artist_id": "4690",
+        "year": 2000,
+        "id": 6166,
+        "artwork_track_id": "c5fb0239",
+        "artist": "Eric Clapton"
+      },
+      {
+        "artist_id": "4690",
+        "album": "Sessions For Robert J",
+        "artist": "Eric Clapton",
+        "artwork_track_id": "76b90917",
+        "id": 6167,
+        "year": 2004
+      },
+      {
+        "artwork_track_id": "7ab37c39",
+        "artist": "Eric Clapton",
+        "year": 1977,
+        "id": 6168,
+        "album": "Slowhand",
+        "artist_id": "4690"
+      },
+      {
+        "album": "Time Pieces",
+        "artist_id": "4690",
+        "year": 1982,
+        "id": 6170,
+        "artwork_track_id": "684fc2a4",
+        "artist": "Eric Clapton"
+      },
+      {
+        "album": "Unplugged",
+        "artist_id": "4690",
+        "year": 1992,
+        "id": 6171,
+        "artwork_track_id": "7a6972b2",
+        "artist": "Eric Clapton"
+      },
+      {
+        "year": 2002,
+        "id": 5748,
+        "artwork_track_id": "b8495124",
+        "artist": "Various Artists",
+        "album": "The Very Best Of MTV Unplugged Vol.1",
+        "artist_id": "4690"
+      },
+      {
+        "artist_id": "4690",
+        "album": "The Very Best Of MTV Unplugged Vol.2",
+        "id": 5749,
+        "year": 2003,
+        "artist": "Various Artists",
+        "artwork_track_id": "e9967a65"
+      },
+      {
+        "year": 2004,
+        "id": 5750,
+        "artwork_track_id": "b0bc367b",
+        "artist": "Various Artists",
+        "album": "The Very Best Of MTV Unplugged Vol.3",
+        "artist_id": "4690"
+      }
+    ],
+    "count": 22
+  }
+}

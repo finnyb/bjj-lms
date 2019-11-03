@@ -1,0 +1,9 @@
+<mat-paginator
+  [pageSize]="artistResponse.pageSize"
+  [length]="artistResponse.count"
+  [showFirstLastButtons]="true"
+  [pageIndex]="artistResponse.startingPage"
+  (page)="pageSelected($event)"
+  *ngIf="artistResponse && artistResponse.pageCount > 1"
+>
+</mat-paginator>

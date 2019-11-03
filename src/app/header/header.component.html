@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/" class="branding">BJJ</button>
+  <app-header-player [player]="selectedPlayer"></app-header-player>
+  <span class="flex-spacer"></span>
+  <span>{{ status?.time | secondsToTime }}</span>
+  <div>
+    <app-currently-playing
+      [value]="status?.percentComplete()"
+    ></app-currently-playing>
+  </div>
+  <span>{{ status?.duration | secondsToTime }}</span>
+  <span class="flex-spacer"></span>
+  <app-volume
+    [player]="selectedPlayer"
+    [volume]="status?.volume"
+    [muted]="status?.muted"
+  ></app-volume>
+  <span class="flex-spacer"></span>
+  <mat-spinner
+    *ngIf="rescanning()"
+    mode="indeterminate"
+    color="accent"
+    diameter="24"
+    [routerLink]="'/info/database'"
+  ></mat-spinner>
+  <span>
+    <app-player-list></app-player-list>
+  </span>
+</mat-toolbar>

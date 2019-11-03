@@ -1,0 +1,34 @@
+<cdk-virtual-scroll-viewport itemSize="300" class="album-viewport">
+  <mat-card class="artist-album" *ngFor="let album of albums">
+    <mat-card-title-group>
+      <mat-card-title>{{ album.name }}</mat-card-title>
+      <mat-card-subtitle
+        ><span>Artist: </span>{{ album.artist }}</mat-card-subtitle
+      >
+      <mat-card-subtitle><span>Year: </span>{{ album.year }}</mat-card-subtitle>
+      <mat-card-subtitle
+        ><span>Type: </span>{{ albumTypes(album.id) }}</mat-card-subtitle
+      >
+      <mat-card-subtitle>
+        <app-add-album [album]="album"></app-add-album>
+        <button mat-icon-button>
+          <mat-icon aria-label="Years">calendar_today</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon aria-label="Tracks">list</mat-icon>
+        </button>
+      </mat-card-subtitle>
+      <img mat-card-xl-image src="{{ imageUrl(album.artworkTrackId) }}" />
+    </mat-card-title-group>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-description fxLayoutAlign="center">
+          Tracks ({{ albumTracks(album.id).length }})
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-artist-album-tracks
+        [tracks]="albumTracks(album.id)"
+      ></app-artist-album-tracks>
+    </mat-expansion-panel>
+  </mat-card>
+</cdk-virtual-scroll-viewport>

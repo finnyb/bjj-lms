@@ -1,0 +1,140 @@
+{
+  "id": "",
+  "params": [
+    "-",
+    [
+      "tracks",
+      "0",
+      "100",
+      "album_id: 9193",
+      "sort:tracknum",
+      "tags: t,a,e,l,y,r,o,J"
+    ]
+  ],
+  "result": {
+    "count": 10,
+    "titles_loop": [
+      {
+        "id": 127399,
+        "title": "Intolerance",
+        "tracknum": "1",
+        "artist": "Tool",
+        "album_id": "9193",
+        "album": "Undertow",
+        "year": "1993",
+        "bitrate": "938kbps VBR",
+        "type": "flc",
+        "artwork_track_id": "78bc2414"
+      },
+      {
+        "id": 127400,
+        "title": "Prison Sex",
+        "tracknum": "2",
+        "artist": "Tool",
+        "album_id": "9193",
+        "album": "Undertow",
+        "year": "1993",
+        "bitrate": "937kbps VBR",
+        "type": "flc",
+        "artwork_track_id": "78bc2414"
+      },
+      {
+        "id": 127401,
+        "title": "Sober",
+        "tracknum": "3",
+        "artist": "Tool",
+        "album_id": "9193",
+        "album": "Undertow",
+        "year": "1993",
+        "bitrate": "926kbps VBR",
+        "type": "flc",
+        "artwork_track_id": "78bc2414"
+      },
+      {
+        "id": 127402,
+        "title": "Bottom",
+        "tracknum": "4",
+        "artist": "Tool",
+        "album_id": "9193",
+        "album": "Undertow",
+        "year": "1993",
+        "bitrate": "941kbps VBR",
+        "type": "flc",
+        "artwork_track_id": "78bc2414"
+      },
+      {
+        "id": 127403,
+        "title": "Crawl Away",
+        "tracknum": "5",
+        "artist": "Tool",
+        "album_id": "9193",
+        "album": "Undertow",
+        "year": "1993",
+        "bitrate": "937kbps VBR",
+        "type": "flc",
+        "artwork_track_id": "78bc2414"
+      },
+      {
+        "id": 127404,
+        "title": "Swamp Song",
+        "tracknum": "6",
+        "artist": "Tool",
+        "album_id": "9193",
+        "album": "Undertow",
+        "year": "1993",
+        "bitrate": "942kbps VBR",
+        "type": "flc",
+        "artwork_track_id": "78bc2414"
+      },
+      {
+        "id": 127405,
+        "title": "Undertow",
+        "tracknum": "7",
+        "artist": "Tool",
+        "album_id": "9193",
+        "album": "Undertow",
+        "year": "1993",
+        "bitrate": "969kbps VBR",
+        "type": "flc",
+        "artwork_track_id": "78bc2414"
+      },
+      {
+        "id": 127406,
+        "title": "4 Degrees",
+        "tracknum": "8",
+        "artist": "Tool",
+        "album_id": "9193",
+        "album": "Undertow",
+        "year": "1993",
+        "bitrate": "894kbps VBR",
+        "type": "flc",
+        "artwork_track_id": "78bc2414"
+      },
+      {
+        "id": 127407,
+        "title": "Flood",
+        "tracknum": "9",
+        "artist": "Tool",
+        "album_id": "9193",
+        "album": "Undertow",
+        "year": "1993",
+        "bitrate": "854kbps VBR",
+        "type": "flc",
+        "artwork_track_id": "78bc2414"
+      },
+      {
+        "id": 127408,
+        "title": "Disgustipated",
+        "tracknum": "69",
+        "artist": "Tool",
+        "album_id": "9193",
+        "album": "Undertow",
+        "year": "1993",
+        "bitrate": "569kbps VBR",
+        "type": "flc",
+        "artwork_track_id": "78bc2414"
+      }
+    ]
+  },
+  "method": "slim.request"
+}

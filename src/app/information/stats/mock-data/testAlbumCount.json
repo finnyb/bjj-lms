@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "result": {
+    "_albums": 903
+  },
+  "method": "slim.request",
+  "params": ["-", ["info", "total", "albums", "?"]]
+}

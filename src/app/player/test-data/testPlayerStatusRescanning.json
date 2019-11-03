@@ -1,0 +1,22 @@
+{
+  "method": "slim.request",
+  "params": ["00:04:20:22:0a:90", ["status", "0", "100"]],
+  "result": {
+    "playlist repeat": 0,
+    "playlist mode": "off",
+    "playlist_timestamp": 1543456302.0321,
+    "signalstrength": 100,
+    "seq_no": "17",
+    "player_connected": 1,
+    "mixer volume": 40,
+    "mode": "stop",
+    "player_name": "Theater",
+    "playlist_cur_index": 0,
+    "digital_volume_control": 1,
+    "power": 1,
+    "playlist shuffle": 0,
+    "rescan": "1",
+    "playlist_tracks": 9,
+    "player_ip": "172.30.74.109:49947"
+  }
+}

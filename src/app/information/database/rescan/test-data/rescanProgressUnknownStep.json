@@ -1,0 +1,16 @@
+{
+  "params": ["-", ["rescanprogress"]],
+  "method": "slim.request",
+  "result": {
+    "discovering_playlist": 98,
+    "dboptimize": 1,
+    "fullname": "Discovering playlists: /home/bill/Music",
+    "steps": "unknown_step",
+    "updateStandaloneArtwork": 96,
+    "directory_new": 99,
+    "plugin_fulltext": 97,
+    "totaltime": "00:03:16",
+    "discovering_directory": 100,
+    "rescan": 1
+  }
+}

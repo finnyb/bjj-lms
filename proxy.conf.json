@@ -1,0 +1,10 @@
+{
+  "/jsonrpc.js": {
+    "target": "http://music.home:9000",
+    "secure": "false"
+  },
+  "/music": {
+    "target": "http://music.home:9000",
+    "secure": "false"
+  }
+}

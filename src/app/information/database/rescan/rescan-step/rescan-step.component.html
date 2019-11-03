@@ -1,0 +1,11 @@
+<mat-list-item
+  >{{ step.name }}
+  <mat-icon matListIcon aria-label="step done" *ngIf="step.percentage === 100"
+    >done
+  </mat-icon>
+</mat-list-item>
+<mat-progress-bar
+  mode="buffer"
+  value="{{ step.percentage }}"
+></mat-progress-bar>
+<mat-list-item *ngIf="step.percentage < 100">{{ info }}</mat-list-item>

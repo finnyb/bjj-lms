@@ -1,0 +1,43 @@
+{
+  "result": {
+    "players_loop": [
+      {
+        "power": 0,
+        "playerindex": "0",
+        "displaytype": "none",
+        "connected": 1,
+        "isplaying": 0,
+        "playerid": "00:04:20:22:0a:90",
+        "isplayer": 1,
+        "model": "fab4",
+        "modelname": "Squeezebox Touch",
+        "canpoweroff": 1,
+        "ip": "172.30.74.109:47746",
+        "firmware": "7.8.0-r16754",
+        "name": "Office",
+        "uuid": "584c879280617e4e0c1b4ff78af5a525",
+        "seq_no": "4"
+      },
+      {
+        "displaytype": "graphic-320x32",
+        "playerindex": 1,
+        "power": 0,
+        "connected": 1,
+        "modelname": "Squeezebox Classic",
+        "canpoweroff": 1,
+        "isplayer": 1,
+        "model": "squeezebox3",
+        "playerid": "00:04:20:07:93:9b",
+        "isplaying": 0,
+        "seq_no": 0,
+        "firmware": "137",
+        "ip": "172.30.74.176:42578",
+        "name": "Theater",
+        "uuid": null
+      }
+    ],
+    "count": 2
+  },
+  "method": "slim.request",
+  "params": ["-", ["players", "0", "100"]]
+}

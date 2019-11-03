@@ -1,0 +1,14 @@
+<mat-card *ngIf="track" class="currently-playing">
+  <img
+    mat-card-image
+    height="400px"
+    width="400px"
+    *ngIf="coverUrl"
+    [src]="coverUrl"
+  />
+  <mat-card-title>{{ track.name }}</mat-card-title>
+  <mat-card-content>
+    <p>{{ track.artist }}</p>
+    <p>{{ track.album }}</p>
+  </mat-card-content>
+</mat-card>

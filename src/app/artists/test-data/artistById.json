@@ -1,0 +1,15 @@
+{
+  "params": ["-", ["artists", "0", "100", "artist_id: 4690", "tags: 's'"]],
+  "method": "slim.request",
+  "result": {
+    "artists_loop": [
+      {
+        "artist": "Eric Clapton",
+        "id": 4690,
+        "textkey": "E"
+      }
+    ],
+    "count": 1
+  },
+  "id": ""
+}

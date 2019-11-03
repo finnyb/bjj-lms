@@ -1,0 +1,22 @@
+<mat-card
+  [class.mat-elevation-z0]="!playing"
+  [class.mat-elevation-z24]="playing"
+  (mouseenter)="showActions()"
+  (mouseleave)="hideActions()"
+>
+  <mat-card-title-group>
+    <mat-card-title class="track-title">
+      <mat-icon *ngIf="playing">music_note</mat-icon>
+      {{ track.name }}
+      <mat-icon *ngIf="playing">music_note</mat-icon>
+    </mat-card-title>
+    <mat-card-subtitle>{{ track.artist }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ track.album }}</mat-card-subtitle>
+    <app-playlist-track-actions
+      [player]="player"
+      [track]="track"
+      [visible]="visible"
+    >
+    </app-playlist-track-actions>
+  </mat-card-title-group>
+</mat-card>

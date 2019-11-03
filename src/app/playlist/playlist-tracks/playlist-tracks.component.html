@@ -1,0 +1,15 @@
+<mat-nav-list>
+  <cdk-virtual-scroll-viewport
+    itemSize="100"
+    class="playlist-viewport"
+    (scrolledIndexChange)="scrollHandler($event)"
+  >
+    <app-playlist-track
+      *cdkVirtualFor="let track of tracks"
+      [track]="track"
+      [player]="player"
+      [playing]="currentlyPlaying(track)"
+    >
+    </app-playlist-track>
+  </cdk-virtual-scroll-viewport>
+</mat-nav-list>

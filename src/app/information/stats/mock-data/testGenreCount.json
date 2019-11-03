@@ -1,0 +1,8 @@
+{
+  "method": "slim.request",
+  "params": ["-", ["info", "total", "genres", "?"]],
+  "result": {
+    "_genres": 226
+  },
+  "id": 1
+}

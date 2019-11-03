@@ -1,0 +1,114 @@
+{
+  "params": ["-", ["apps", "0", "100"]],
+  "method": "slim.request",
+  "result": {
+    "count": 15,
+    "appss_loop": [
+      {
+        "type": "xmlbrowser",
+        "cmd": "spotty",
+        "weight": 1,
+        "icon": "plugins/Spotty/html/images/93aac68fb06348598c1e67734dfaceee.png",
+        "name": "Spotty"
+      },
+      {
+        "type": "xmlbrowser",
+        "cmd": "pandora",
+        "weight": 10,
+        "name": "Pandora",
+        "icon": "plugins/Pandora/html/images/icon.png"
+      },
+      {
+        "weight": 20,
+        "icon": "plugins/RhapsodyDirect/html/images/icon.png",
+        "name": "Napster",
+        "type": "xmlbrowser",
+        "cmd": "rhapsodydirect"
+      },
+      {
+        "icon": "plugins/Slacker/html/images/icon.png",
+        "name": "Slacker",
+        "weight": 30,
+        "cmd": "slacker",
+        "type": "xmlbrowser"
+      },
+      {
+        "type": "xmlbrowser",
+        "cmd": "amazon",
+        "weight": 30,
+        "name": "Amazon CD Store",
+        "icon": "plugins/Amazon/html/images/icon.png"
+      },
+      {
+        "type": "xmlbrowser",
+        "cmd": "wimp",
+        "weight": 35,
+        "icon": "plugins/WiMP/html/images/icon.png",
+        "name": "TIDAL"
+      },
+      {
+        "icon": "plugins/Deezer/html/images/icon.png",
+        "name": "Deezer",
+        "weight": 35,
+        "cmd": "deezer",
+        "type": "xmlbrowser"
+      },
+      {
+        "weight": 38,
+        "icon": "plugins/Classical/html/images/icon.png",
+        "name": "Classical.com",
+        "type": "xmlbrowser",
+        "cmd": "classical"
+      },
+      {
+        "icon": "plugins/Orange/html/images/icon.png",
+        "name": "Orange Liveradio",
+        "weight": 40,
+        "cmd": "orange",
+        "type": "xmlbrowser"
+      },
+      {
+        "name": "MOG",
+        "icon": "plugins/MOG/html/images/icon.png",
+        "weight": 40,
+        "cmd": "mog",
+        "type": "xmlbrowser"
+      },
+      {
+        "name": "MP3tunes Music Locker",
+        "icon": "plugins/MP3tunes/html/images/icon.png",
+        "weight": 50,
+        "cmd": "mp3tunes",
+        "type": "xmlbrowser"
+      },
+      {
+        "type": "xmlbrowser",
+        "cmd": "lma",
+        "weight": 60,
+        "name": "Live Music Archive",
+        "icon": "plugins/LMA/html/images/icon.png"
+      },
+      {
+        "name": "Sounds & Effects",
+        "icon": "plugins/Sounds/html/images/icon.png",
+        "weight": 1000,
+        "cmd": "sounds",
+        "type": "xmlbrowser"
+      },
+      {
+        "type": "xmlbrowser",
+        "cmd": "live365",
+        "weight": 1000,
+        "icon": "plugins/Live365/html/images/icon.png",
+        "name": "Live365"
+      },
+      {
+        "type": "xmlbrowser",
+        "cmd": "flickr",
+        "weight": 1000,
+        "name": "Flickr",
+        "icon": "plugins/Flickr/html/images/icon.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "params": ["00:00:ac:1e:4a:6d", ["status", "0", "100", "tags: DD"]],
+  "method": "slim.request",
+  "result": {
+    "can_seek": 1,
+    "playlist duration": 2288.583,
+    "playlist repeat": 0,
+    "mode": "stop",
+    "playlist mode": "off",
+    "power": 1,
+    "playlist shuffle": 0,
+    "playlist_cur_index": "8",
+    "player_name": "SoftSqueeze",
+    "player_connected": 1,
+    "playlist_timestamp": 1543062582.9608,
+    "time": 0,
+    "mixer volume": 92,
+    "signalstrength": 100,
+    "digital_volume_control": 1,
+    "seq_no": 11,
+    "duration": 296.333,
+    "playlist_tracks": 9,
+    "rate": 1,
+    "player_ip": "172.30.74.109:60868"
+  }
+}

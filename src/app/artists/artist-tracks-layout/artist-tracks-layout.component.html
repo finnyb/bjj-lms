@@ -1,0 +1,6 @@
+<app-bread-crumbs [crumbs]="crumbs"></app-bread-crumbs>
+<div fxLayout="row">
+  <div fxLayout="column" class="artist-tracks">
+    <app-tracks [tracks]="tracks$ | async"></app-tracks>
+  </div>
+</div>

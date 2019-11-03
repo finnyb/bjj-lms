@@ -1,0 +1,16 @@
+<app-bread-crumbs [crumbs]="crumbs"></app-bread-crumbs>
+<div fxLayout="row" fxLayoutGap="10px">
+  <div fxLayout="column" class="playlist-tracks">
+    <app-playlist-tracks
+      [player]="player"
+      [currentTrack]="currentTrack"
+      (pageEvent)="nextPage($event)"
+    >
+    </app-playlist-tracks>
+  </div>
+  <div fxLayout="column" class="playlist-playing">
+    <app-playlist-current [coverUrl]="currentCoverUrl" [track]="currentTrack">
+    </app-playlist-current>
+    <app-playlist-actions></app-playlist-actions>
+  </div>
+</div>

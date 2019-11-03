@@ -1,0 +1,26 @@
+{
+  "params": ["00:04:20:22:0a:90", ["status", "0", "100", "tags: DD"]],
+  "result": {
+    "mode": "pause",
+    "playlist mode": "off",
+    "player_connected": 1,
+    "playlist repeat": 0,
+    "signalstrength": 100,
+    "mixer volume": 40,
+    "power": 1,
+    "time": 32.3815879936218,
+    "playlist_cur_index": "42",
+    "digital_volume_control": 1,
+    "playlist_timestamp": 1548986951.38219,
+    "duration": 433.173,
+    "rate": 1,
+    "player_ip": "172.30.74.109:51621",
+    "playlist_tracks": 328,
+    "seq_no": "2",
+    "player_name": "Office",
+    "playlist duration": 88247.84,
+    "playlist shuffle": 0,
+    "can_seek": 1
+  },
+  "method": "slim.request"
+}

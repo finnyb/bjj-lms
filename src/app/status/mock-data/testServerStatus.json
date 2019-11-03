@@ -1,0 +1,54 @@
+{
+  "result": {
+    "info total artists": 4277,
+    "player count": 2,
+    "info total duration": 16593383.8129997,
+    "other player count": 0,
+    "uuid": "441f2eab-d85e-434d-9510-cb5f6d1c2f26",
+    "version": "7.9.1",
+    "info total albums": 4863,
+    "info total songs": 67768,
+    "info total genres": 85,
+    "lastscan": "1560554965",
+    "mac": "00:01:2e:3b:fb:00",
+    "sn player count": 0,
+    "players_loop": [
+      {
+        "isplaying": 0,
+        "modelname": "Transporter",
+        "name": "Transporter",
+        "uuid": null,
+        "seq_no": 0,
+        "ip": "172.30.74.180:35086",
+        "displaytype": "graphic-320x32",
+        "playerindex": "0",
+        "connected": 1,
+        "power": 0,
+        "firmware": 87,
+        "isplayer": 1,
+        "playerid": "00:04:20:10:1b:e6",
+        "model": "transporter",
+        "canpoweroff": 1
+      },
+      {
+        "canpoweroff": 1,
+        "model": "fab4",
+        "playerid": "00:04:20:22:0a:90",
+        "firmware": "7.8.0-r16754",
+        "isplayer": 1,
+        "power": 1,
+        "connected": 1,
+        "playerindex": 1,
+        "displaytype": "none",
+        "seq_no": "6",
+        "ip": "172.30.74.109:52971",
+        "uuid": "584c879280617e4e0c1b4ff78af5a525",
+        "modelname": "Squeezebox Touch",
+        "name": "Office",
+        "isplaying": 0
+      }
+    ]
+  },
+  "method": "slim.request",
+  "params": ["-", ["serverstatus", "0", "100"]]
+}

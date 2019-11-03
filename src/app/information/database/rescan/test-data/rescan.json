@@ -1,0 +1,5 @@
+{
+  "result": {},
+  "method": "slim.request",
+  "params": ["-", ["rescan"]]
+}

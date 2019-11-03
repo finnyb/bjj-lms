@@ -1,0 +1,5 @@
+{
+  "method": "slim.request",
+  "params": ["00:04:20:10:1b:e6", ["status", "0", "100", "tags: DD"]],
+  "result": {}
+}

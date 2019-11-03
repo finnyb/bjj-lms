@@ -1,0 +1,18 @@
+<button mat-icon-button aria-label="mute" (click)="mute()">
+  <i *ngIf="muted" class="material-icons">volume_off</i>
+  <i *ngIf="!muted" class="material-icons">volume_mute</i>
+</button>
+<button mat-icon-button aria-label="softer" (click)="down()">
+  <i class="material-icons">volume_down</i>
+</button>
+<mat-slider
+  min="0"
+  max="100"
+  (input)="onInputChange($event)"
+  [step]="step"
+  [value]="volume"
+>
+</mat-slider>
+<button mat-icon-button aria-label="louder" (click)="up()">
+  <i class="material-icons">volume_up</i>
+</button>

@@ -1,0 +1,26 @@
+<app-bread-crumbs [crumbs]="crumbs"></app-bread-crumbs>
+<mat-sidenav-container class="side-nav">
+  <mat-sidenav opened mode="side">
+    <mat-nav-list class="nav-list">
+      <app-navigations [navigations]="navigations"></app-navigations>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div fxLayout="row" fxLayoutGap="10px">
+      <div fxLayout="column" class="artist-filter">
+        <div fxLayout="row" fxFlexAlign="center" class="filter-text">
+          <app-filter (filter)="filter($event)"></app-filter>
+        </div>
+        <div fxLayout="row" class="artist-list">
+          <app-artist-list (pageEvent)="nextPage()"></app-artist-list>
+        </div>
+      </div>
+      <div fxLayout="column" class="album-list">
+        <app-artist-album-list
+          [albums]="albums"
+          [tracks]="artistTracks"
+        ></app-artist-album-list>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

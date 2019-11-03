@@ -1,0 +1,13 @@
+<button mat-button *ngIf="selectedPlayer" [matMenuTriggerFor]="menu">
+  {{ selectedPlayer.name }}
+  <mat-icon>arrow_drop_down</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button
+    mat-menu-item
+    *ngFor="let player of players"
+    (click)="selectPlayer(player)"
+  >
+    {{ player.name }}
+  </button>
+</mat-menu>

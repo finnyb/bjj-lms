@@ -1,0 +1,34 @@
+mat-sidenav {
+  width: 50px;
+}
+
+.side-nav {
+  position: absolute;
+  top: 46px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.nav-list {
+  padding-top: 0px;
+}
+
+.artist-filter {
+  width: 600px;
+}
+
+.album-list {
+  width: 50%;
+}
+
+.artist-list {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.mat-list,
+.mat-nav-list,
+.mat-selection-list {
+  width: 100%;
+}

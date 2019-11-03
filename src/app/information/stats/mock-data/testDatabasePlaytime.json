@@ -1,0 +1,8 @@
+{
+  "method": "slim.request",
+  "params": ["-", ["info", "total", "duration", "?"]],
+  "result": {
+    "_duration": 24219.6480000011
+  },
+  "id": 1
+}

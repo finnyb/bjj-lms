@@ -1,0 +1,18 @@
+{
+  "params": [
+    "-",
+    [
+      "tracks",
+      "0",
+      "9999",
+      "artist_id: 7919",
+      "sort:albumtrack",
+      "tags: a,t,e,l,y,r,o,J"
+    ]
+  ],
+  "method": "slim.request",
+  "result": {
+    "count": 1,
+    "titles_loop": [{}]
+  }
+}

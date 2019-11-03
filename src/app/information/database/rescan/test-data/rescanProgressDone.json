@@ -1,0 +1,7 @@
+{
+  "params": ["-", ["rescanprogress"]],
+  "method": "slim.request",
+  "result": {
+    "rescan": 0
+  }
+}

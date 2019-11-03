@@ -1,0 +1,12 @@
+{
+  "method": "slim.request",
+  "result": {
+    "totaltime": "00:00:12",
+    "steps": "discovering_directory",
+    "fullname": "Discovering files/directories: /mnt/music",
+    "rescan": 1,
+    "info": "/mnt/music/D/The Doors/Waiting For The Sun",
+    "discovering_directory": -1
+  },
+  "params": ["-", ["rescanprogress"]]
+}

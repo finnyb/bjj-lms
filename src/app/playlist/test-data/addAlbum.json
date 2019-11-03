@@ -1,0 +1,10 @@
+{
+  "result": {
+    "count": 12
+  },
+  "method": "slim.request",
+  "params": [
+    "00:04:20:22:0a:90",
+    ["playlistcontrol", "cmd:add", "album_id:6161"]
+  ]
+}

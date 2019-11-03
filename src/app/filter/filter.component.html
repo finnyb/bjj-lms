@@ -1,0 +1,17 @@
+<div class="filter-form">
+  <mat-form-field class="filter-text">
+    <input
+      #filter
+      matInput
+      placeholder="Filter"
+      (keyup)="onKey(filter.value)"
+    />
+  </mat-form-field>
+  <mat-form-field class="filter-type">
+    <mat-select placeholder="Type" [(value)]="selectedFilter">
+      <mat-option *ngFor="let type of filterTypes" [value]="type">
+        {{ type }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

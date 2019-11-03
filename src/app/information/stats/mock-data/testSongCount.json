@@ -1,0 +1,8 @@
+{
+  "method": "slim.request",
+  "params": ["-", ["info", "total", "songs", "?"]],
+  "result": {
+    "_songs": 4608
+  },
+  "id": 1
+}

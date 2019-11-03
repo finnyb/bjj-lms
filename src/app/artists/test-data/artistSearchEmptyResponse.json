@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "method": "slim.request",
+  "result": {
+    "count": 0
+  },
+  "params": ["-", ["artists", "0", "100", "search: Empty"]]
+}
