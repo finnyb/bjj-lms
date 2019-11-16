@@ -13,7 +13,7 @@ export class VolumeComponent implements OnInit {
   @Input() muted: boolean;
   @Input() volume: number;
 
-  private readonly step = 5.0;
+  readonly step = 5.0;
 
   constructor(private service: PlayerService) {}
 
