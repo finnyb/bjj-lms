@@ -17,6 +17,7 @@ export class PlayerStatusService {
   private tracks: Array<PlaylistTrack>;
   private currentTrack: PlaylistTrack;
   private playlistTimestamp: number;
+  private playerLoaded: boolean;
 
   private lastChecked: number;
   private lastStatus: PlayerStatus;
@@ -35,6 +36,7 @@ export class PlayerStatusService {
 
   selected(player: Player): void {
     this.currentPlayer = player;
+    this.playerLoaded = true;
     this.playerSource.next(player);
     this.playerService.tracks(player).subscribe(() => {
       this.checkStatus();
@@ -50,6 +52,10 @@ export class PlayerStatusService {
   }
 
   public checkStatus(): void {
+    if (!this.playerLoaded) {
+      return;
+    }
+
     if (
       this.lastStatus == null ||
       Date.now() - this.lastChecked > this.updateInterval
