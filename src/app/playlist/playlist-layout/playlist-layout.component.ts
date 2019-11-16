@@ -5,7 +5,6 @@ import { PlaylistTrack } from '../playlist-track';
 import { PlayerStatusService } from '../../player/status/player-status.service';
 import { Breadcrumb } from '../../bread-crumbs/breadcrumb';
 import { CoverService } from '../../album/cover.service';
-import { PlayerStatus } from '../../player/status/player-status';
 import { PlayerService } from '../../player/player.service';
 import { PlaylistListService } from '../playlist-list.service';
 import { PlayerTracksResponse } from '../../player/player-tracks-response';
@@ -32,7 +31,6 @@ export class PlaylistLayoutComponent implements OnInit, OnDestroy {
     },
   ];
 
-  private status: PlayerStatus;
   private currentPage = 0;
   private numberOfPages = 0;
 

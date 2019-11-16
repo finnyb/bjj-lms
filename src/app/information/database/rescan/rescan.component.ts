@@ -13,10 +13,10 @@ import { Subject, Subscription, timer } from 'rxjs';
 export class RescanComponent implements OnInit {
   private progress: RescanProgress;
   private steps = new Array<RescanStep>();
-  private scanned: boolean;
   private rescanning = false;
   private statusSource = new Subject<PlayerStatus>();
 
+  scanned: boolean;
   statusSubscription: Subscription;
   statusSource$ = this.statusSource.asObservable();
 
