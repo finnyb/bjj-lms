@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Player } from '../../player/player';
 import { PlaylistTrack } from '../playlist-track';
 import { PlayerStatusService } from '../../player/status/player-status.service';
 import { Breadcrumb } from '../../bread-crumbs/breadcrumb';
@@ -8,6 +7,8 @@ import { CoverService } from '../../album/cover.service';
 import { PlayerService } from '../../player/player.service';
 import { PlaylistListService } from '../playlist-list.service';
 import { PlayerTracksResponse } from '../../player/player-tracks-response';
+import { PlayerSelectionService } from '../../player/player-selection.service';
+import { Player } from '../../player/player';
 
 @Component({
   selector: 'app-playlist-layout',
@@ -15,7 +16,6 @@ import { PlayerTracksResponse } from '../../player/player-tracks-response';
   styleUrls: ['./playlist-layout.component.scss'],
 })
 export class PlaylistLayoutComponent implements OnInit, OnDestroy {
-  player: Player;
   playerSubscription: Subscription;
   playlistSubscription: Subscription;
   currentTrackSubscription: Subscription;
@@ -36,26 +36,24 @@ export class PlaylistLayoutComponent implements OnInit, OnDestroy {
 
   constructor(
     private coverService: CoverService,
-    private playerSelectedService: PlayerStatusService,
+    private playerStatusService: PlayerStatusService,
+    private playerSelectionService: PlayerSelectionService,
     private playerService: PlayerService,
     private playlistService: PlaylistListService
   ) {}
 
   ngOnInit() {
-    this.player = this.playerSelectedService.currentPlayer;
-    this.playerSubscription = this.playerSelectedService.playerSelected$.subscribe(
-      player => this.loadPlayer(player)
+    this.playerSubscription = this.playerSelectionService.playerSelected$.subscribe(
+      () => this.loadPlayer()
     );
 
-    this.playlistSubscription = this.playerSelectedService.playlistChanged$.subscribe(
+    this.playlistSubscription = this.playerStatusService.playlistChanged$.subscribe(
       tracks => (this.tracks = tracks)
     );
 
-    this.currentTrackSubscription = this.playerSelectedService.currentlyPlayingTrack$.subscribe(
+    this.currentTrackSubscription = this.playerStatusService.currentlyPlayingTrack$.subscribe(
       t => this.currentTrackChanged(t)
     );
-
-    this.loadPlayer(this.player);
   }
 
   ngOnDestroy(): void {
@@ -74,26 +72,34 @@ export class PlaylistLayoutComponent implements OnInit, OnDestroy {
     if (this.currentPage < this.numberOfPages) {
       this.currentPage++;
       this.playerService
-        .tracks(this.player, this.currentPage)
+        .tracks(this.playerSelectionService.currentPlayer, this.currentPage)
         .subscribe(r => this.loadPlaylistResponse(r));
     }
   }
 
-  private loadPlayer(player: Player): void {
-    if (player) {
-      this.player = player;
+  player(): Player {
+    return this.playerSelectionService.currentPlayer;
+  }
+
+  private loadPlayer(): void {
+    if (this.playerSelectionService.currentPlayer) {
       this.playlistService.reset();
       this.playerService
-        .tracks(player)
+        .tracks(this.playerSelectionService.currentPlayer)
         .subscribe(r => this.loadPlaylistResponse(r));
     }
+    this.loadCover();
   }
 
   private currentTrackChanged(track: PlaylistTrack) {
     this.currentTrack = track;
-    this.currentCoverUrl =
-      this.coverService.currentlyPlayingCover(this.player.id) +
-      this.timestamp();
+    this.loadCover();
+  }
+
+  private loadCover() {
+    this.currentCoverUrl = this.coverService.currentlyPlayingCover(
+      this.playerSelectionService.currentPlayer.id + this.timestamp()
+    );
   }
 
   private timestamp(): string {

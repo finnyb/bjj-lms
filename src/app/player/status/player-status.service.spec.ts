@@ -2,12 +2,12 @@ import { TestBed } from '@angular/core/testing';
 
 import { PlayerStatusService } from './player-status.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Mode } from './player-status';
 import { PlayerService } from '../player.service';
-import { Player } from '../player';
 import { of } from 'rxjs';
+import { Player } from '../player';
+import { PlayerSelectionService } from '../player-selection.service';
 
-function createPlayer(): Player {
+function createPlayer() {
   return new Player({
     id: '00:04:20:07:93:9b',
     name: 'player',
@@ -27,44 +27,29 @@ function createPlayer(): Player {
   });
 }
 
-function createStatus() {
-  return {
-    name: '',
-    volume: 0,
-    muted: false,
-    sequence: 0,
-    power: false,
-    signalStrength: 0,
-    playlistTimestamp: 0,
-    digitalVolumeControl: false,
-    ip: '0.0.0.0',
-    tracks: 0,
-    connected: false,
-    shuffle: false,
-    repeat: false,
-    duration: 0,
-    playlistDuration: 0,
-    mode: Mode.STOPPED,
-    playlistMode: 'off',
-    time: 0,
-    rescanning: false,
-  };
+function createPlayers(): Player[] {
+  return [createPlayer()];
 }
 
 describe('PlayerStatusService', () => {
   let service: PlayerStatusService;
   let playerServiceSpy: jasmine.SpyObj<PlayerService>;
+  let playerSelectionService: PlayerSelectionService;
 
   beforeEach(() => {
     playerServiceSpy = jasmine.createSpyObj('playerServiceSpy', [
       'status',
       'tracks',
+      'getPlayers',
     ]);
 
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [{ provide: PlayerService, useValue: playerServiceSpy }],
     });
+
+    playerServiceSpy.getPlayers.and.returnValue(of(createPlayers()));
+    playerSelectionService = TestBed.get(PlayerSelectionService);
     service = TestBed.get(PlayerStatusService);
   });
 
@@ -73,6 +58,7 @@ describe('PlayerStatusService', () => {
   });
 
   it('empty player', () => {
+    playerServiceSpy.getPlayers.and.returnValue(of(createPlayers()));
     expect(service.checkStatus());
     expect(playerServiceSpy.status).not.toHaveBeenCalled();
   });
@@ -80,8 +66,8 @@ describe('PlayerStatusService', () => {
   it('empty playlist', () => {
     playerServiceSpy.tracks.and.returnValue(of({}));
     playerServiceSpy.status.and.returnValue(of({}));
-    service.selected(createPlayer());
-    expect(service.checkStatus());
+    playerServiceSpy.getPlayers.and.returnValue(of(createPlayers()));
+    playerSelectionService.selectPlayer(createPlayer());
     expect(playerServiceSpy.status).toHaveBeenCalled();
   });
 });

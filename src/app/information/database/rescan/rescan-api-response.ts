@@ -32,13 +32,13 @@ function processSteps(scanSteps: string, rawResponse: any) {
 
   scanSteps.split(',').forEach(s => {
     steps.push(
-      new RescanStep(
-        s,
-        mapName(s),
-        rawResponse[s] == null || rawResponse[s] < 0 ? 0 : rawResponse[s]
-      )
+      new RescanStep({
+        id: s,
+        name: mapName(s),
+        percentage:
+          rawResponse[s] == null || rawResponse[s] < 0 ? 0 : rawResponse[s],
+      })
     );
-    console.log(s);
   });
 
   return steps;
@@ -50,7 +50,7 @@ function mapProgress(rawResult: any): RescanProgress {
   return new RescanProgress({
     scanning: !!r.rescan,
     totalTime: r.totaltime == null ? '' : r.totaltime,
-    fullname: r.fullname,
+    currentDescription: r.fullname,
     info: r.info == null ? '' : r.info,
     steps: r.steps == null ? [] : processSteps(r.steps, rawResult),
   });

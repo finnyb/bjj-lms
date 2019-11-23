@@ -5,7 +5,6 @@ import { Navigation } from '../navigations/navigation';
 import { forkJoin } from 'rxjs';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AlbumService } from '../album/album.service';
-import { ArtistSelectedService } from './artist-selected.service';
 import { Album } from '../album/album';
 import { TrackService } from '../tracks/track.service';
 import { Track } from '../tracks/track';
@@ -38,7 +37,6 @@ export class ArtistsLayoutComponent implements OnInit {
   constructor(
     private artistsService: ArtistsService,
     private artistListService: ArtistListService,
-    private artistSelectedService: ArtistSelectedService,
     private albumService: AlbumService,
     private trackService: TrackService,
     private route: ActivatedRoute

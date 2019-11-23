@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { PlaylistTrack } from '../playlist-track';
 import { Player } from '../../player/player';
 import { PlaylistListService } from '../playlist-list.service';
@@ -9,7 +16,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './playlist-tracks.component.html',
   styleUrls: ['./playlist-tracks.component.scss'],
 })
-export class PlaylistTracksComponent implements OnInit {
+export class PlaylistTracksComponent implements OnInit, OnDestroy {
   @Input() player: Player;
   @Input() currentTrack: PlaylistTrack;
   @Output() pageEvent = new EventEmitter();
@@ -38,5 +45,9 @@ export class PlaylistTracksComponent implements OnInit {
     if ($event > this.tracks.length * this.triggerPercentage) {
       this.pageEvent.emit();
     }
+  }
+
+  ngOnDestroy(): void {
+    this.tracksSubscription.unsubscribe();
   }
 }

@@ -10,6 +10,9 @@ class AppHeaderStubComponent {}
 @Component({ selector: 'app-sidebar', template: '' })
 class AppSidebarStubComponent {}
 
+@Component({ selector: 'app-alert', template: '' })
+class AppAlertStubComponent {}
+
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
@@ -19,6 +22,7 @@ describe('AppComponent', () => {
       imports: [HttpClientTestingModule, RouterTestingModule],
       declarations: [
         AppComponent,
+        AppAlertStubComponent,
         AppHeaderStubComponent,
         AppSidebarStubComponent,
       ],

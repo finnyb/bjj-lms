@@ -47,6 +47,7 @@ import { PlaylistTrackActionsComponent } from './playlist/playlist-track/playlis
 import { VolumeComponent } from './header/volume/volume.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { PlayerDetailComponent } from './information/player/player-detail/player-detail.component';
+import { AlertComponent } from './notifications/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { PlayerDetailComponent } from './information/player/player-detail/player
     PlaylistTrackActionsComponent,
     VolumeComponent,
     PlayerDetailComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
