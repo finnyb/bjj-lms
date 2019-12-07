@@ -4,11 +4,9 @@ import { PlaylistTrack } from '../playlist-track';
 import { PlayerStatusService } from '../../player/status/player-status.service';
 import { Breadcrumb } from '../../bread-crumbs/breadcrumb';
 import { CoverService } from '../../album/cover.service';
-import { PlayerService } from '../../player/player.service';
-import { PlaylistListService } from '../playlist-list.service';
-import { PlayerTracksResponse } from '../../player/player-tracks-response';
 import { PlayerSelectionService } from '../../player/player-selection.service';
 import { Player } from '../../player/player';
+import { PlaylistService } from '../playlist.service';
 
 @Component({
   selector: 'app-playlist-layout',
@@ -31,18 +29,16 @@ export class PlaylistLayoutComponent implements OnInit, OnDestroy {
     },
   ];
 
-  private currentPage = 0;
-  private numberOfPages = 0;
-
   constructor(
     private coverService: CoverService,
     private playerStatusService: PlayerStatusService,
     private playerSelectionService: PlayerSelectionService,
-    private playerService: PlayerService,
-    private playlistService: PlaylistListService
+    private playlistService: PlaylistService
   ) {}
 
   ngOnInit() {
+    this.loadPlayer();
+
     this.playerSubscription = this.playerSelectionService.playerSelected$.subscribe(
       () => this.loadPlayer()
     );
@@ -62,19 +58,8 @@ export class PlaylistLayoutComponent implements OnInit, OnDestroy {
     this.currentTrackSubscription.unsubscribe();
   }
 
-  private loadPlaylistResponse(r: PlayerTracksResponse) {
-    this.currentPage = r.startingPage;
-    this.numberOfPages = r.pageCount;
-    this.playlistService.add(r.tracks);
-  }
-
   nextPage() {
-    if (this.currentPage < this.numberOfPages) {
-      this.currentPage++;
-      this.playerService
-        .tracks(this.playerSelectionService.currentPlayer, this.currentPage)
-        .subscribe(r => this.loadPlaylistResponse(r));
-    }
+    this.playlistService.nextPage();
   }
 
   player(): Player {
@@ -82,13 +67,10 @@ export class PlaylistLayoutComponent implements OnInit, OnDestroy {
   }
 
   private loadPlayer(): void {
-    if (this.playerSelectionService.currentPlayer) {
-      this.playlistService.reset();
-      this.playerService
-        .tracks(this.playerSelectionService.currentPlayer)
-        .subscribe(r => this.loadPlaylistResponse(r));
+    if (this.player()) {
+      this.playlistService.loadPlayer(this.player());
+      this.loadCover();
     }
-    this.loadCover();
   }
 
   private currentTrackChanged(track: PlaylistTrack) {
@@ -98,7 +80,7 @@ export class PlaylistLayoutComponent implements OnInit, OnDestroy {
 
   private loadCover() {
     this.currentCoverUrl = this.coverService.currentlyPlayingCover(
-      this.playerSelectionService.currentPlayer.id + this.timestamp()
+      this.player().id + this.timestamp()
     );
   }
 

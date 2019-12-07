@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 import { PlaylistTrack } from '../playlist-track';
 import { Player } from '../../player/player';
-import { PlaylistListService } from '../playlist-list.service';
 import { Subscription } from 'rxjs';
+import { PlaylistService } from '../playlist.service';
 
 @Component({
   selector: 'app-playlist-tracks',
@@ -26,7 +26,7 @@ export class PlaylistTracksComponent implements OnInit, OnDestroy {
   private tracksSubscription: Subscription;
   private triggerPercentage = 0.8;
 
-  constructor(private service: PlaylistListService) {}
+  constructor(private service: PlaylistService) {}
 
   ngOnInit() {
     this.service.reset();

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { PlaylistTrack } from '../../playlist/playlist-track';
 import { PlayerService } from '../player.service';
 import { Mode, PlayerStatus } from './player-status';
 import { PlayerSelectionService } from '../player-selection.service';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ import { PlayerSelectionService } from '../player-selection.service';
 export class PlayerStatusService {
   private statusSource = new Subject<PlayerStatus>();
   private playlistSource = new Subject<Array<PlaylistTrack>>();
-  private currentlyPlayingSource = new Subject<PlaylistTrack>();
+  private currentlyPlayingSource = new ReplaySubject<PlaylistTrack>(1);
 
   private tracks: Array<PlaylistTrack>;
   private currentTrack: PlaylistTrack;
@@ -32,6 +33,7 @@ export class PlayerStatusService {
     private playerSelectionService: PlayerSelectionService
   ) {
     this.lastChecked = Date.now();
+    this.tracks = [];
     this.playerSelectionService.playerSelected$.subscribe(() =>
       this.playerSelected()
     );
@@ -77,10 +79,7 @@ export class PlayerStatusService {
       this.playlistTimestamp = s.playlistTimestamp;
       this.loadTracks();
     }
-
-    if (this.tracks != null) {
-      this.checkCurrentlyPlaying(s);
-    }
+    this.checkCurrentlyPlaying(s);
   }
 
   private loadTracks(): void {
@@ -93,10 +92,15 @@ export class PlayerStatusService {
   }
 
   private checkCurrentlyPlaying(status: PlayerStatus) {
-    const track = this.tracks[status.currentIndex];
-    if (this.currentTrack == null || track.id !== this.currentTrack.id) {
-      this.trackChanged(track);
-      this.currentTrack = track;
+    if (this.tracks.length > 0) {
+      const track = this.tracks[status.currentIndex];
+      if (_.isNil(this.currentTrack) || track.id !== this.currentTrack.id) {
+        this.trackChanged(track);
+        this.currentTrack = track;
+      }
+    } else if (!_.isNil(this.currentTrack)) {
+      this.trackChanged(null);
+      this.currentTrack = null;
     }
   }
 }
