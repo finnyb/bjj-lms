@@ -12,7 +12,7 @@ export class ArtistAlbumTracksComponent implements OnInit {
 
   displayedColumns: string[] = ['num', 'name', 'add'];
 
-  constructor(private service: PlaylistService) {}
+  constructor() {}
 
   ngOnInit() {}
 }

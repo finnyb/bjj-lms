@@ -3,7 +3,7 @@ import { PlayerStatus } from '../player/status/player-status';
 import { Subscription } from 'rxjs';
 import { PlayerStatusService } from '../player/status/player-status.service';
 import { Player } from '../player/player';
-import { PlayerService } from '../player/player.service';
+import { PlayerSelectionService } from '../player/player-selection.service';
 
 @Component({
   selector: 'app-header',
@@ -17,18 +17,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
   playerSubscription: Subscription;
 
   constructor(
-    private playerService: PlayerService,
+    private playerSelectionService: PlayerSelectionService,
     private statusService: PlayerStatusService
   ) {}
 
   ngOnInit() {
-    this.playerSubscription = this.statusService.playerSelected$.subscribe(
+    this.playerSubscription = this.playerSelectionService.playerSelected$.subscribe(
       player => (this.selectedPlayer = player)
     );
 
     this.statusSubscription = this.statusService.statusSource$.subscribe(s =>
       this.checkStatus(s)
     );
+
+    this.selectedPlayer = this.playerSelectionService.currentPlayer;
   }
 
   ngOnDestroy(): void {

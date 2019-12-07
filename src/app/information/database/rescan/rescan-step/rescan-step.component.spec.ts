@@ -24,7 +24,11 @@ describe('RescanStepComponent', () => {
     fixture = TestBed.createComponent(RescanStepComponent);
     component = fixture.componentInstance;
 
-    step = new RescanStep('', '', 0);
+    step = new RescanStep({
+      id: '',
+      name: '',
+      percentage: 0,
+    });
     component.step = step;
     fixture.detectChanges();
   });

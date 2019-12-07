@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PlaylistRequestService } from './playlist-request.service';
 import { Track } from '../tracks/track';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { mapPlaylist, PlaylistApiResponse } from './playlist-api-response';
 import {
@@ -12,6 +12,8 @@ import { Album } from '../album/album';
 import { Artist } from '../artists/artist';
 import { Player } from '../player/player';
 import { PlaylistTrack } from './playlist-track';
+import { PlayerService } from '../player/player.service';
+import { PlayerTracksResponse } from '../player/player-tracks-response';
 
 @Injectable({
   providedIn: 'root',
@@ -19,16 +21,32 @@ import { PlaylistTrack } from './playlist-track';
 export class PlaylistService {
   private readonly handleError: HandleError;
 
+  private player: Player;
+  private playlistTrackSource = new Subject<Array<PlaylistTrack>>();
+  private playlistTracks: Array<PlaylistTrack> = [];
+  private currentPage = 0;
+  private numberOfPages = 0;
+
+  playlistTrackSource$ = this.playlistTrackSource.asObservable();
+
   constructor(
     private service: PlaylistRequestService,
+    private playerService: PlayerService,
     private errorService: HttpErrorHandlerService
   ) {
     this.handleError = errorService.createHandleError('PlaylistService');
   }
 
+  public reset() {
+    this.playlistTracks = [];
+    this.playlistTrackSource.next(this.playlistTracks);
+  }
+
   clear(player: Player): Observable<boolean> {
     return this.service.clear(player.id).pipe(
       map(() => {
+        this.playlistTracks = [];
+        this.playlistTrackSource.next(this.playlistTracks);
         return true;
       }),
       catchError(this.handleError<boolean>('clear playlist'))
@@ -42,6 +60,30 @@ export class PlaylistService {
       }),
       catchError(this.handleError<boolean>('play playlist'))
     );
+  }
+
+  public nextPage() {
+    if (this.currentPage < this.numberOfPages) {
+      this.currentPage++;
+      this.tracks(this.player, this.currentPage);
+    }
+  }
+
+  public loadPlayer(player: Player): void {
+    this.player = player;
+    this.reset();
+    this.playerService.tracks(player).subscribe(r => this.add(r.tracks));
+  }
+
+  private tracks(player: Player, page = 0): void {
+    this.playerService
+      .tracks(player, page)
+      .subscribe(r => this.loadPlaylistResponse(r));
+  }
+
+  public add(tracks: Array<PlaylistTrack>) {
+    this.playlistTracks = [...this.playlistTracks, ...tracks];
+    this.playlistTrackSource.next(this.playlistTracks);
   }
 
   addTrack(player: Player, track: Track): Observable<number> {
@@ -70,5 +112,11 @@ export class PlaylistService {
       map((r: PlaylistApiResponse) => mapPlaylist(r)),
       catchError(this.handleError<number>('add artist'))
     );
+  }
+
+  private loadPlaylistResponse(r: PlayerTracksResponse) {
+    this.currentPage = r.startingPage;
+    this.numberOfPages = r.pageCount;
+    this.add(r.tracks);
   }
 }

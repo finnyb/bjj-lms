@@ -1,13 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Player } from '../../player/player';
 import { PlaylistTrack } from '../playlist-track';
 import { PlayerStatusService } from '../../player/status/player-status.service';
 import { Breadcrumb } from '../../bread-crumbs/breadcrumb';
 import { CoverService } from '../../album/cover.service';
-import { PlayerService } from '../../player/player.service';
-import { PlaylistListService } from '../playlist-list.service';
-import { PlayerTracksResponse } from '../../player/player-tracks-response';
+import { PlayerSelectionService } from '../../player/player-selection.service';
+import { Player } from '../../player/player';
+import { PlaylistService } from '../playlist.service';
 
 @Component({
   selector: 'app-playlist-layout',
@@ -15,7 +14,6 @@ import { PlayerTracksResponse } from '../../player/player-tracks-response';
   styleUrls: ['./playlist-layout.component.scss'],
 })
 export class PlaylistLayoutComponent implements OnInit, OnDestroy {
-  player: Player;
   playerSubscription: Subscription;
   playlistSubscription: Subscription;
   currentTrackSubscription: Subscription;
@@ -31,31 +29,27 @@ export class PlaylistLayoutComponent implements OnInit, OnDestroy {
     },
   ];
 
-  private currentPage = 0;
-  private numberOfPages = 0;
-
   constructor(
     private coverService: CoverService,
-    private playerSelectedService: PlayerStatusService,
-    private playerService: PlayerService,
-    private playlistService: PlaylistListService
+    private playerStatusService: PlayerStatusService,
+    private playerSelectionService: PlayerSelectionService,
+    private playlistService: PlaylistService
   ) {}
 
   ngOnInit() {
-    this.player = this.playerSelectedService.currentPlayer;
-    this.playerSubscription = this.playerSelectedService.playerSelected$.subscribe(
-      player => this.loadPlayer(player)
+    this.loadPlayer();
+
+    this.playerSubscription = this.playerSelectionService.playerSelected$.subscribe(
+      () => this.loadPlayer()
     );
 
-    this.playlistSubscription = this.playerSelectedService.playlistChanged$.subscribe(
+    this.playlistSubscription = this.playerStatusService.playlistChanged$.subscribe(
       tracks => (this.tracks = tracks)
     );
 
-    this.currentTrackSubscription = this.playerSelectedService.currentlyPlayingTrack$.subscribe(
+    this.currentTrackSubscription = this.playerStatusService.currentlyPlayingTrack$.subscribe(
       t => this.currentTrackChanged(t)
     );
-
-    this.loadPlayer(this.player);
   }
 
   ngOnDestroy(): void {
@@ -64,36 +58,30 @@ export class PlaylistLayoutComponent implements OnInit, OnDestroy {
     this.currentTrackSubscription.unsubscribe();
   }
 
-  private loadPlaylistResponse(r: PlayerTracksResponse) {
-    this.currentPage = r.startingPage;
-    this.numberOfPages = r.pageCount;
-    this.playlistService.add(r.tracks);
-  }
-
   nextPage() {
-    if (this.currentPage < this.numberOfPages) {
-      this.currentPage++;
-      this.playerService
-        .tracks(this.player, this.currentPage)
-        .subscribe(r => this.loadPlaylistResponse(r));
-    }
+    this.playlistService.nextPage();
   }
 
-  private loadPlayer(player: Player): void {
-    if (player) {
-      this.player = player;
-      this.playlistService.reset();
-      this.playerService
-        .tracks(player)
-        .subscribe(r => this.loadPlaylistResponse(r));
+  player(): Player {
+    return this.playerSelectionService.currentPlayer;
+  }
+
+  private loadPlayer(): void {
+    if (this.player()) {
+      this.playlistService.loadPlayer(this.player());
+      this.loadCover();
     }
   }
 
   private currentTrackChanged(track: PlaylistTrack) {
     this.currentTrack = track;
-    this.currentCoverUrl =
-      this.coverService.currentlyPlayingCover(this.player.id) +
-      this.timestamp();
+    this.loadCover();
+  }
+
+  private loadCover() {
+    this.currentCoverUrl = this.coverService.currentlyPlayingCover(
+      this.player().id + this.timestamp()
+    );
   }
 
   private timestamp(): string {

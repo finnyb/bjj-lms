@@ -1,5 +1,5 @@
-<button mat-button *ngIf="selectedPlayer" [matMenuTriggerFor]="menu">
-  {{ selectedPlayer.name }}
+<button mat-button *ngIf="player" [matMenuTriggerFor]="menu">
+  {{ player.name }}
   <mat-icon>arrow_drop_down</mat-icon>
 </button>
 <mat-menu #menu="matMenu">

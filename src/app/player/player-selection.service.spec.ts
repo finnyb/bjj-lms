@@ -1,11 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PlayerStatusService } from './player-status.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { PlayerService } from '../player.service';
+import { PlayerSelectionService } from './player-selection.service';
 import { of } from 'rxjs';
-import { Player } from '../player';
-import { PlayerSelectionService } from '../player-selection.service';
+import { PlayerService } from './player.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Player } from './player';
 
 function createPlayer() {
   return new Player({
@@ -31,10 +30,9 @@ function createPlayers(): Player[] {
   return [createPlayer()];
 }
 
-describe('PlayerStatusService', () => {
-  let service: PlayerStatusService;
+describe('PlayerSelectionService', () => {
+  let service: PlayerSelectionService;
   let playerServiceSpy: jasmine.SpyObj<PlayerService>;
-  let playerSelectionService: PlayerSelectionService;
 
   beforeEach(() => {
     playerServiceSpy = jasmine.createSpyObj('playerServiceSpy', [
@@ -49,25 +47,14 @@ describe('PlayerStatusService', () => {
     });
 
     playerServiceSpy.getPlayers.and.returnValue(of(createPlayers()));
-    playerSelectionService = TestBed.get(PlayerSelectionService);
-    service = TestBed.get(PlayerStatusService);
+    service = TestBed.get(PlayerSelectionService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  it('empty player', () => {
-    playerServiceSpy.getPlayers.and.returnValue(of(createPlayers()));
-    expect(service.checkStatus());
-    expect(playerServiceSpy.status).not.toHaveBeenCalled();
-  });
-
-  it('empty playlist', () => {
-    playerServiceSpy.tracks.and.returnValue(of({}));
-    playerServiceSpy.status.and.returnValue(of({}));
-    playerServiceSpy.getPlayers.and.returnValue(of(createPlayers()));
-    playerSelectionService.selectPlayer(createPlayer());
-    expect(playerServiceSpy.status).toHaveBeenCalled();
+  it('last player not found', () => {
+    expect(service).toBeTruthy();
   });
 });

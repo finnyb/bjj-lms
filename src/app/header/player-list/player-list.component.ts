@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../../player/player';
-import { PlayerStatusService } from '../../player/status/player-status.service';
 import { PlayerService } from '../../player/player.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { PlayerSelectionService } from '../../player/player-selection.service';
 
 @Component({
   selector: 'app-player-list',
@@ -10,43 +9,29 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./player-list.component.scss'],
 })
 export class PlayerListComponent implements OnInit {
-  selectedPlayer: Player;
   players: Player[];
+  player: Player;
 
   constructor(
     private playerService: PlayerService,
-    private statusService: PlayerStatusService,
-    private snackBar: MatSnackBar
+    private playerSelectionService: PlayerSelectionService
   ) {}
 
   ngOnInit() {
-    this.getPlayers();
+    this.loadPlayers();
   }
 
-  getPlayers(): void {
+  loadPlayers(): void {
     this.playerService.getPlayers().subscribe(players => {
       this.players = players;
-      this.selectPlayer(this.determinePlayer());
+      this.player = this.playerSelectionService.currentPlayer;
+      this.playerSelectionService.playerSelected$.subscribe(
+        p => (this.player = p)
+      );
     });
   }
 
   selectPlayer(player: Player) {
-    this.selectedPlayer = player;
-    this.statusService.selected(player);
-    localStorage.setItem('selectedPlayer', JSON.stringify(player));
-  }
-
-  private determinePlayer(): Player {
-    const lastPlayer = this.players.filter(
-      p => p.id === JSON.parse(localStorage.getItem('selectedPlayer')).id
-    )[0];
-    if (lastPlayer != null) {
-      return lastPlayer;
-    } else {
-      this.snackBar.open('Last used player not found!', 'Not Found', {
-        duration: 0,
-      });
-      return this.players[0];
-    }
+    this.playerSelectionService.selectPlayer(player);
   }
 }

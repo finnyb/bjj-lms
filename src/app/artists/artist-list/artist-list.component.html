@@ -4,7 +4,7 @@
   class="artist-viewport"
 >
   <app-artist
-    *cdkVirtualFor="let artist of artists"
+    *cdkVirtualFor="let artist of artists$ | async"
     [artist]="artist"
   ></app-artist>
 </cdk-virtual-scroll-viewport>

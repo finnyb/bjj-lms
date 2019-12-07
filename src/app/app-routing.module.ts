@@ -50,7 +50,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '',
+    redirectTo: '/playlist',
     pathMatch: 'full',
   },
 ];

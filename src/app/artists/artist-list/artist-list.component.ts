@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Artist } from '../artist';
 import { ArtistListService } from '../artist-list.service';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-artist-list',
@@ -12,7 +12,7 @@ export class ArtistListComponent implements OnInit {
   @Input() selectedArtist: Artist;
   @Output() pageEvent = new EventEmitter();
 
-  private artistSubscription: Subscription;
+  artists$: Observable<Artist[]>;
   private triggerPercentage = 0.8;
 
   artists: Array<Artist> = [];
@@ -20,9 +20,7 @@ export class ArtistListComponent implements OnInit {
   constructor(private artistListService: ArtistListService) {}
 
   ngOnInit() {
-    this.artistSubscription = this.artistListService.artistSource$.subscribe(
-      artists => (this.artists = artists)
-    );
+    this.artists$ = this.artistListService.artistSource$;
   }
 
   scrollHandler($event) {

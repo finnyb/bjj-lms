@@ -1,24 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PlayerStatusService } from '../../../player/status/player-status.service';
 import { RescanService } from './rescan.service';
 import { RescanProgress, RescanStep } from './rescan-progress';
 import { PlayerStatus } from '../../../player/status/player-status';
-import { Subject, Subscription, timer } from 'rxjs';
+import { Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-rescan',
   templateUrl: './rescan.component.html',
   styleUrls: ['./rescan.component.scss'],
 })
-export class RescanComponent implements OnInit {
+export class RescanComponent implements OnInit, OnDestroy {
   private progress: RescanProgress;
   private steps = new Array<RescanStep>();
   private rescanning = false;
-  private statusSource = new Subject<PlayerStatus>();
 
   scanned: boolean;
   statusSubscription: Subscription;
-  statusSource$ = this.statusSource.asObservable();
 
   private subscription: Subscription;
 
@@ -31,6 +29,10 @@ export class RescanComponent implements OnInit {
     this.statusSubscription = this.statusService.statusSource$.subscribe(s =>
       this.checkStatus(s)
     );
+  }
+
+  ngOnDestroy(): void {
+    this.statusSubscription.unsubscribe();
   }
 
   private completeSteps() {

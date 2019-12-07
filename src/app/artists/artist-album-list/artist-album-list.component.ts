@@ -13,10 +13,7 @@ export class ArtistAlbumListComponent implements OnInit {
   @Input() albums: Array<Album>;
   @Input() tracks: Array<Track>;
 
-  constructor(
-    private coverService: CoverService,
-    private playlistService: PlaylistService
-  ) {}
+  constructor(private coverService: CoverService) {}
 
   ngOnInit() {}
 

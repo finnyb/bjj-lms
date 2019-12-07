@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Player } from '../../player/player';
-import { PlayerStatusService } from '../../player/status/player-status.service';
 import { PlayerService } from '../../player/player.service';
-import { MatSnackBar } from '@angular/material';
+import { AlertService } from '../../notifications/alert.service';
 
 @Component({
   selector: 'app-header-player',
@@ -14,25 +13,24 @@ export class HeaderPlayerComponent {
 
   constructor(
     private playerService: PlayerService,
-    private playerStatusService: PlayerStatusService,
-    private snackBar: MatSnackBar
+    private alertService: AlertService
   ) {}
 
   pause() {
     this.playerService
       .pause(this.player)
-      .subscribe(() => this.snackBar.open('player', 'paused'));
+      .subscribe(() => this.alertService.info('player', 'paused'));
   }
 
   play() {
     this.playerService
       .play(this.player)
-      .subscribe(() => this.snackBar.open('player', 'started'));
+      .subscribe(() => this.alertService.info('player', 'started'));
   }
 
   stop() {
     this.playerService
       .stop(this.player)
-      .subscribe(() => this.snackBar.open('player', 'stopped'));
+      .subscribe(() => this.alertService.info('player', 'stopped'));
   }
 }

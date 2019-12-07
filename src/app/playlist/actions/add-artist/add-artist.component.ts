@@ -1,43 +1,28 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Player } from '../../../player/player';
-import { Subscription } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
 import { PlaylistService } from '../../playlist.service';
-import { PlayerStatusService } from '../../../player/status/player-status.service';
 import { MatSnackBar } from '@angular/material';
 import { Artist } from '../../../artists/artist';
+import { PlayerSelectionService } from '../../../player/player-selection.service';
 
 @Component({
   selector: 'app-add-artist',
   templateUrl: './add-artist.component.html',
   styleUrls: ['./add-artist.component.scss'],
 })
-export class AddArtistComponent implements OnInit, OnDestroy {
+export class AddArtistComponent implements OnInit {
   @Input() artist: Artist;
-  private player: Player;
-
-  playerSubscription: Subscription;
 
   constructor(
     private service: PlaylistService,
-    private playerSelectedService: PlayerStatusService,
+    private playerSelectionService: PlayerSelectionService,
     private snackBar: MatSnackBar
-  ) {
-    this.player = playerSelectedService.currentPlayer;
-  }
+  ) {}
 
-  ngOnInit() {
-    this.playerSubscription = this.playerSelectedService.playerSelected$.subscribe(
-      player => (this.player = player)
-    );
-  }
-
-  ngOnDestroy() {
-    this.playerSubscription.unsubscribe();
-  }
+  ngOnInit() {}
 
   add() {
     this.service
-      .addArtist(this.player, this.artist)
+      .addArtist(this.playerSelectionService.currentPlayer, this.artist)
       .subscribe(() => this.snackBar.open(this.artist.name, 'added'));
   }
 }

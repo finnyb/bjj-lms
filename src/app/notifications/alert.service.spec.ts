@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PlaylistListService } from './playlist-list.service';
+import { AlertService } from './alert.service';
 
-describe('PlaylistListService', () => {
+describe('AlertService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PlaylistListService = TestBed.get(PlaylistListService);
+    const service: AlertService = TestBed.get(AlertService);
     expect(service).toBeTruthy();
   });
 });

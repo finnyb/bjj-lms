@@ -1,43 +1,28 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PlaylistService } from '../../playlist.service';
 import { MatSnackBar } from '@angular/material';
 import { Artist } from '../../../artists/artist';
-import { Player } from '../../../player/player';
-import { Subscription } from 'rxjs';
-import { PlayerStatusService } from '../../../player/status/player-status.service';
+import { PlayerSelectionService } from '../../../player/player-selection.service';
 
 @Component({
   selector: 'app-clear',
   templateUrl: './clear.component.html',
   styleUrls: ['./clear.component.scss'],
 })
-export class ClearComponent implements OnInit, OnDestroy {
+export class ClearComponent implements OnInit {
   @Input() artist: Artist;
-  private player: Player;
-
-  playerSubscription: Subscription;
 
   constructor(
     private service: PlaylistService,
-    private playerSelectedService: PlayerStatusService,
+    private playerSelectionService: PlayerSelectionService,
     private snackBar: MatSnackBar
-  ) {
-    this.player = playerSelectedService.currentPlayer;
-  }
+  ) {}
 
-  ngOnInit() {
-    this.playerSubscription = this.playerSelectedService.playerSelected$.subscribe(
-      player => (this.player = player)
-    );
-  }
-
-  ngOnDestroy() {
-    this.playerSubscription.unsubscribe();
-  }
+  ngOnInit() {}
 
   clear() {
     this.service
-      .clear(this.player)
+      .clear(this.playerSelectionService.currentPlayer)
       .subscribe(() => this.snackBar.open('playlist', 'cleared'));
   }
 }

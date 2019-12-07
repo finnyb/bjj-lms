@@ -4,6 +4,7 @@ import { PlaylistTracksComponent } from './playlist-tracks.component';
 import { Component, Input } from '@angular/core';
 import { MatListModule } from '@angular/material';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 @Component({ selector: 'app-playlist-track', template: '' })
 class AppPlaylistTracksStubComponent {
@@ -18,7 +19,7 @@ describe('PlaylistTracksComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatListModule, ScrollingModule],
+      imports: [HttpClientTestingModule, MatListModule, ScrollingModule],
       declarations: [PlaylistTracksComponent, AppPlaylistTracksStubComponent],
     }).compileComponents();
   }));

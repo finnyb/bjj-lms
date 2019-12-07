@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { Player } from '../player';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { PlaylistTrack } from '../../playlist/playlist-track';
 import { PlayerService } from '../player.service';
 import { Mode, PlayerStatus } from './player-status';
+import { PlayerSelectionService } from '../player-selection.service';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlayerStatusService {
-  private playerSource = new Subject<Player>();
   private statusSource = new Subject<PlayerStatus>();
   private playlistSource = new Subject<Array<PlaylistTrack>>();
-  private currentlyPlayingSource = new Subject<PlaylistTrack>();
+  private currentlyPlayingSource = new ReplaySubject<PlaylistTrack>(1);
 
   private tracks: Array<PlaylistTrack>;
   private currentTrack: PlaylistTrack;
@@ -24,23 +24,19 @@ export class PlayerStatusService {
 
   public updateInterval = 5000;
 
-  currentPlayer: Player;
-  playerSelected$ = this.playerSource.asObservable();
   statusSource$ = this.statusSource.asObservable();
   playlistChanged$ = this.playlistSource.asObservable();
   currentlyPlayingTrack$ = this.currentlyPlayingSource.asObservable();
 
-  constructor(private playerService: PlayerService) {
+  constructor(
+    private playerService: PlayerService,
+    private playerSelectionService: PlayerSelectionService
+  ) {
     this.lastChecked = Date.now();
-  }
-
-  selected(player: Player): void {
-    this.currentPlayer = player;
-    this.playerLoaded = true;
-    this.playerSource.next(player);
-    this.playerService.tracks(player).subscribe(() => {
-      this.checkStatus();
-    });
+    this.tracks = [];
+    this.playerSelectionService.playerSelected$.subscribe(() =>
+      this.playerSelected()
+    );
   }
 
   trackChanged(track: PlaylistTrack): void {
@@ -61,14 +57,21 @@ export class PlayerStatusService {
       Date.now() - this.lastChecked > this.updateInterval
     ) {
       this.lastChecked = Date.now();
-      this.playerService.status(this.currentPlayer).subscribe(s => {
-        this.statusSource.next(s);
-        this.processStatus(s);
-        this.lastStatus = s;
-      });
+      this.playerService
+        .status(this.playerSelectionService.currentPlayer)
+        .subscribe(s => {
+          this.statusSource.next(s);
+          this.processStatus(s);
+          this.lastStatus = s;
+        });
     } else if (this.lastStatus.mode === Mode.PLAYING) {
       this.lastStatus.time++;
     }
+  }
+
+  private playerSelected(): void {
+    this.playerLoaded = true;
+    this.checkStatus();
   }
 
   private processStatus(s: PlayerStatus) {
@@ -76,24 +79,28 @@ export class PlayerStatusService {
       this.playlistTimestamp = s.playlistTimestamp;
       this.loadTracks();
     }
-
-    if (this.tracks != null) {
-      this.checkCurrentlyPlaying(s);
-    }
+    this.checkCurrentlyPlaying(s);
   }
 
   private loadTracks(): void {
-    this.playerService.tracks(this.currentPlayer).subscribe(r => {
-      this.tracks = r.tracks;
-      this.playlistChanged(r.tracks);
-    });
+    this.playerService
+      .tracks(this.playerSelectionService.currentPlayer)
+      .subscribe(r => {
+        this.tracks = r.tracks;
+        this.playlistChanged(r.tracks);
+      });
   }
 
   private checkCurrentlyPlaying(status: PlayerStatus) {
-    const track = this.tracks[status.currentIndex];
-    if (this.currentTrack == null || track.id !== this.currentTrack.id) {
-      this.trackChanged(track);
-      this.currentTrack = track;
+    if (this.tracks.length > 0) {
+      const track = this.tracks[status.currentIndex];
+      if (_.isNil(this.currentTrack) || track.id !== this.currentTrack.id) {
+        this.trackChanged(track);
+        this.currentTrack = track;
+      }
+    } else if (!_.isNil(this.currentTrack)) {
+      this.trackChanged(null);
+      this.currentTrack = null;
     }
   }
 }
